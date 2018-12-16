@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import header from '../constants/index.js';
+import axios from 'axios';
 import '../index.css';
 
-
-class AddForm extends Component {
+class Register extends Component {
 	constructor(props){
 		super(props)
 		this.state = {
@@ -63,17 +63,17 @@ class AddForm extends Component {
 
 	handleClick = e => {
 		e.preventDefault();
-		fetch('https://uat-api.synapsefi.com/v3.1/users/5c15dfef3d32870065b288ad', {
-			method: 'POST',
+		fetch('https://uat-api.synapsefi.com/v3.1/users/5c14d993bb650f0066cba2bf', {
+			method: 'PATCH',
 			headers: header,
 			body: JSON.stringify({
 					documents: [{
-			      	email:"test@test.com",
+			      	email:"hello@gmail.com",
 			        phone_number:"901.111.1111",
 			        ip:"::1",
-			        name:"Test User",
+			        name:"Rose Water",
 			        alias:"Test",
-			        entity_type:"M",
+			        entity_type:"F",
 			        entity_scope:"Arts & Entertainment",
 			        day:2,
 			        month:5,
@@ -87,7 +87,7 @@ class AddForm extends Component {
 			            document_value:"2222",
 			            document_type:"SSN"
 			        }]
-   				 }]
+			    }]
 			})
 		})
 		.then(res => console.log("done",res));
@@ -95,12 +95,16 @@ class AddForm extends Component {
 	render() {
 		return (
 			<div>
+			<section className="container">
 			<div className="form">
+				<h3 className="heading">
+					<b>Let's start with some basics.</b>
+				</h3>
 				  <div className="row">
 				    <form className="col s12">
 				      <div className="row">
 				        <div className="input-field col s12">
-				          <input placeholder="Name" id="name" type="text" value={this.state.name} onChange={this.handleName}/>
+				          <input placeholder="Full name" id="name" type="text" value={this.state.name} onChange={this.handleName}/>
 				        </div>
 				      </div>
 				      <div className="row">
@@ -125,14 +129,15 @@ class AddForm extends Component {
 				          <button style={{color: this.state.color_two}} onClick={this.handleNo}>No</button>
 				        </div>
 				      </div>
-				      <button id="btn" className="waves-effect deep-purple darken-2 btn-large" onClick={this.handleClick}>Submit</button>
+				      <button id="btn" className="waves-effect deep-purple darken-2 btn-large" onClick={this.handleClick}>Register</button>
 				    </form>
 				  </div>
 				  </div>
+			</section>
 			</div>
 		);
 	}
 }
 
 
-export default AddForm;
+export default Register;

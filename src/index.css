@@ -13,21 +13,50 @@ code {
     monospace;
 }
 
+/*.main{
+	background-color: #00839F;
+}*/
 
 .form{
-	height: 700px;
-	width: 650px;
 	padding: 30px;
 	margin: 25%;
-	margin-top: 5%;
-	background-color: #EAE9E9;
+	margin-top: 2%;
+	background-color: white;
 }
 
-.heading{
+.heading-div{
 	text-align: center;
+	/*margin-top: 5%;*/
+	background-color: white;
+}
+
+.heading h3{
+	display: inline-block;
+	text-align: left;
+}
+
+h3{
+	font-size: 35px;
+	font-family: system-ui;
+}
+
+.card-1 {
+	background-color: #B70060;
+}
+
+.card-2 {
+	background-color: #230D49;
 }
 
 .waves-effect{
 	margin: 40%;
 	margin-top: 2%;
+}
+
+.status {
+	color: red;
+}
+
+.waves-light{
+	margin-top: 5%;
 }
