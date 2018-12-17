@@ -4,14 +4,14 @@ const app = express();
 const request = require('request');
 
 const options = {
-	url: 'https://uat-api.synapsefi.com/v3.1/users/5c14cd43ed2a6b006604aca6',
+	url: 'https://uat-api.synapsefi.com/v3.1/users/5c10ae89bb650f0068118902',
 	headers: {
 		'Access-Control-Allow-Origin': '*',
 		'Accept': 'application/json',
 		'Content-Type': 'application/json',
 		'X-SP-GATEWAY':'client_id_t0pFaeVnZTifBKz8Mw6c5SbLOxyIYsCkQD2hlHgA|client_secret_BinNe8Jx6uksY9CX02jIgdL5HAhmOETlMW4wrzGF',
 		'X-SP-USER-IP':'192.168.1.50',
-		'X-SP-USER':'oauth_UqH7or8BjsZ3MuJa2xNClA1V4ze0ESp9ydFI0cPW|96cc19a6d931c753c12f369e683cdf5e'
+		'X-SP-USER':'oauth_T7aeUnDoEsQjhVgL86r3vXfKRtI9k2ydClJ5xpcO|96cc19a6d931c753c12f369e683cdf5e'
 	},
 
 	body: {
@@ -35,7 +35,7 @@ const options = {
             document_value:"2222",
             document_type:"SSN"
         }]
-    }]
+        }]
 	},
 	json: true
 

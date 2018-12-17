@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import header from '../constants/index.js';
+import { Link } from 'react-router-dom';
 import '../index.css';
 
 class Register extends Component {
@@ -62,34 +63,38 @@ class Register extends Component {
 
 	handleClick = e => {
 		e.preventDefault();
-		fetch('https://uat-api.synapsefi.com/v3.1/users/5c14d993bb650f0066cba2bf', {
-			method: 'PATCH',
+		fetch('https://uat-api.synapsefi.com/v3.1/users', {
+			method: 'POST',
 			headers: header,
 			body: JSON.stringify({
-					documents: [{
-			      	email:"hello@gmail.com",
-			        phone_number:"901.111.1111",
-			        ip:"::1",
-			        name:"Rose Water",
-			        alias:"Test",
-			        entity_type:"F",
-			        entity_scope:"Arts & Entertainment",
-			        day:2,
-			        month:5,
-			        year:1989,
-			        address_street:"39878 Parada St",
-			        address_city:"Newark",
-			        address_subdivision:"CA",
-			        address_postal_code:"94560",
-			        address_country_code:"US",
-			        virtual_docs:[{
-			            document_value:"2222",
-			            document_type:"SSN"
-			        }]
-			    }]
+					logins: [
+				    {
+				      email: this.state.email,
+				      password: this.state.password
+				    }
+				  ],
+				  phone_numbers: [
+				    this.state.phone
+				  ],
+				  legal_names: [
+				    this.state.name
+				  ],
+				  extra: {
+				    supp_id: "122eddfgbeafrfvbbb",
+				    cip_tag:1,
+				    is_business: false
+				  }
 			})
 		})
-		.then(res => console.log("done",res));
+		.then(res => console.log("done",res))
+		.then(res => {
+			this.setState({
+				name: '',
+				password: '',
+				email: '',
+				phone: '',
+			})
+		})
 	}
 	render() {
 		return (
@@ -128,7 +133,7 @@ class Register extends Component {
 				          <button style={{color: this.state.color_two}} onClick={this.handleNo}>No</button>
 				        </div>
 				      </div>
-				      <button id="btn" className="waves-effect deep-purple darken-2 btn-large" onClick={this.handleClick}>Register</button>
+				    <Link to="//user/5c10ae89bb650f0068118902"><button id="btn" className="waves-effect deep-purple darken-2 btn-large" onClick={this.handleClick}>Register</button></Link>
 				    </form>
 				  </div>
 				  </div>
