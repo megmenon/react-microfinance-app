@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import header from '../constants/index.js';
 import { Link } from 'react-router-dom';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import '../index.css';
 
 class Register extends Component {
@@ -99,6 +101,7 @@ class Register extends Component {
 	render() {
 		return (
 			<div>
+			<Navbar />
 			<section className="container">
 			<div className="form">
 				<h3 className="heading">
@@ -133,11 +136,12 @@ class Register extends Component {
 				          <button style={{color: this.state.color_two}} onClick={this.handleNo}>No</button>
 				        </div>
 				      </div>
-				    <Link to="//user/5c10ae89bb650f0068118902"><button id="btn" className="waves-effect deep-purple darken-2 btn-large" onClick={this.handleClick}>Register</button></Link>
+				    <Link to="//user/5c10ae89bb650f0068118902"><button id="btn" className="waves-effect waves-light btn btn-large" onClick={this.handleClick}>Register</button></Link>
 				    </form>
 				  </div>
 				  </div>
 			</section>
+			<Footer />
 			</div>
 		);
 	}
