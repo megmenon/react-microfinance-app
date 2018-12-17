@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import header from '../constants/index.js';
-import axios from 'axios';
 import '../index.css';
 
 class Register extends Component {

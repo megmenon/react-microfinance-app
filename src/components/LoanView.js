@@ -6,13 +6,31 @@ class LoanView extends Component {
 	constructor(props){
 		super(props)
 		this.state = {
-			data: {}
+			data: [],
+			documents: []
 		}
 	}
 
-	handleClick = e => {
+	componentDidMount = () => {
+			fetch('https://uat-api.synapsefi.com/v3.1/users/5c10ae89bb650f0068118902', {
+			method: 'GET',
+			headers: header
+		})
+		.then(res => res.json())
+		.then(data => {
+			this.setState({
+				data: data,
+				documents: data.documents[0].social_docs[0]
+			})
+			console.log(data)
+			console.log(this.state.documents)
+		})
+	}
+
+
+	handleClick = (e) => {
 		e.preventDefault();
-		fetch('https://uat-api.synapsefi.com/v3.1/users/5c14d993bb650f0066cba2bf', {
+		fetch('https://uat-api.synapsefi.com/v3.1/users/5c10ae89bb650f0068118902', {
 			method: 'PATCH',
 			headers: header,
 			body: JSON.stringify({
@@ -41,49 +59,58 @@ class LoanView extends Component {
 		})
 		.then(res => console.log("done",res));
 	}
-
-	componentDidMount = () => {
-		fetch('https://uat-api.synapsefi.com/v3.1/users/5c10ae89bb650f0068118902', {
-			method: 'GET',
-			headers: header
-		})
-		.then(res => res.json())
-		.then(data => {
-			this.setState({
-				data: data
-			})
-			console.log(data.documents[0].social_docs)
-		})
-	}
-
-	render() {
+	render(){
 		let data = this.state.data.legal_names
+		let info = this.state.data.phone_numbers
+		let doc_status = this.state.data.doc_status
+		let docs = this.state.data.documents
+		let social_docs = this.state.documents
+		let social;
+		if(social_docs){
+			social = Object.keys(social_docs).map(keys => {
+				return <h6>{keys} : {social_docs[keys]}</h6>
+			})
+		}
+		let doc
+		if(docs){
+			doc = docs.map(keys => {
+				return<div><h6>Entity Scope : {keys.entity_scope} </h6>
+				<h6> Entity Type: {keys.entity_type} </h6></div>
+			})
+		}
+		let doc_stat;
+		if(doc_status){
+			doc_stat = Object.keys(doc_status).map(keys => {
+				return <h6>{keys} : {doc_status[keys]}</h6>
+			})
+		}
+		let information
+		if(info){
+			information = info.map(key => {
+				return <h6>Phone Number: {key}</h6>
+			})
+		}
+
 		let name;
 		if(data) {
 			name = Object.keys(data).map(keys => {
-				return <h3 className="heading">Hello, {data[keys]} !</h3>
+				return <h1 className="heading">Hello, {data[keys]} !</h1>
 			})
 		} else {
 			name = null
 		}
-		let info = this.state.data.documents
-		let infor;
-		if(info) {
-			infor = info.map(keys => {
-				return <h3 className="heading">{keys.id}</h3>
-			})
-		}
-		return (
+		return(
 			<div>
-				<section className="container">
-				<div className="form">
-				{name} 
-				{infor}
-				</div>
-				<button id="btn" className="waves-effect deep-purple darken-2 btn-large" onClick={this.handleClick}>Add Documents</button>
-				</section>
+			{name}
+			{information}
+			{doc}
+			{doc_stat}
+			{social}
+			<button onClick={this.handleClick} class="waves-light btn-small">Add</button>
+
 			</div>
-		);
+
+		)
 	}
 }
 
