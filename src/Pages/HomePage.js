@@ -82,8 +82,7 @@ class HomePage extends Component {
 			          </p>
 			        </div>
 			        <div class="card-action">
-			          <a href="#">This is a link</a>
-			          <a href="#">This is a link</a>
+			          <a href="#">Read More</a>
 			        </div>
 			      </div>
 			    </div>
