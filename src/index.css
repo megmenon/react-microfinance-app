@@ -45,14 +45,20 @@ h3{
 	font-family: American Typewriter, serif;
 }
 
-.card-1 {
-	background-color: #B70060;
+.stories{
+	text-align: left;
 }
 
-.card-2 {
-	background-color: #230D49;
+.forreal{
+	text-align: center;
 }
 
+.benefits{
+	text-align: center;
+	margin-top: 10%;
+	padding: 25px;
+	height: 40px;
+}
 .waves-effect{
 	margin: 40%;
 	margin-top: 2%;
@@ -73,10 +79,10 @@ a{
 	margin-top: 7%;
 }
 
-
 .container img {
-	width: auto;
-	 max-height: 900px;
+	margin-top: 10%;
+	width: 100%;
+	height: auto;
 }
 
 .footer-container{
@@ -84,10 +90,34 @@ a{
 }
 
 .footer-box{
-	height: 250px;
+	height: 400px;
 	margin-left: -1%;
 	margin-right: -1%;
+	margin-top: 15%;
 	background-color: #3B0097;
+}
+.products{
+	margin-top: 2%;
+}
+
+.Copyright{
+	margin-top: 2%;
+	text-align: center;
+}
+
+.company{
+	margin-left: 30%;
+	margin-top: -19%;
+}
+
+.legal{
+	margin-left: 55%;
+	margin-top: -14%;
+}
+
+.questions{
+	margin-left: 80%;
+	margin-top: -15%;
 }
 
 .card-content{
@@ -126,4 +156,50 @@ a{
 
 .tr{
 	height: 100px;
+}
+
+.details{
+	margin-left: 12%;
+	margin-top: 10%;
+	width: 300px;
+}
+
+.transparency{
+	margin-left: 43%;
+	margin-top: -13%;
+	width: 300px;
+}
+
+.together {
+	margin-top: -12%;
+	width: 300px;
+	margin-left: 75%;
+}
+.box{
+	margin-top: 15%;
+	height: 50px;
+}
+
+.raise{
+	background-color: #e0e0e0;
+	height: 400px;
+	padding: 80px;
+	margin-top: 30%;
+}
+
+.card-heading{
+	font-size: 60px;
+}
+
+p{
+	font-size: 25px;
+	margin-right: 10%;
+}
+
+@media only screen and (max-width:620px) {
+  /* For mobile phones: */
+  .form .main, .container .card .card1 .card-content.company .legal .questions .together .transparency .details 
+  .raise {
+    width:100%;
+  }
 }

@@ -11,7 +11,7 @@ class Navbar extends Component {
 				    <div className="nav-wrapper deep-purple darken-4">
 				    <div>
 				      <a href="#" className="brand-logo">
-				      	<button className="deep-purple darken-4 btn"><b>MicroFi</b></button>
+				      	<button className="deep-purple darken-4 btn"><b>SO-fi</b></button>
 				      	</a>
 				      </div>
 				      <ul id="nav-mobile" className="right hide-on-med-and-down">

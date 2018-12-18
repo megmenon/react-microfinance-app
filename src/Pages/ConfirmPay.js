@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import header from '../constants/index.js';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import '../index.css'
 
 class ConfirmPay extends Component {
@@ -57,6 +59,7 @@ class ConfirmPay extends Component {
 	render() {
 		return (
 		<div>
+		<Navbar />
 			<section className="main">
 				<div className="form">
 					<div style={{visibility: this.state.visibility}} >
@@ -74,6 +77,7 @@ class ConfirmPay extends Component {
 					</section>
 				</div>
 			</section>
+			<Footer />
 		</div>
 		)
 	}

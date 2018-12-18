@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import header from '../constants/index.js';
+import Navbar from '../components/Navbar';
+import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
 import '../index.css';
 
 class LoanView extends Component {
@@ -115,7 +118,14 @@ class LoanView extends Component {
 		let doc_status = this.state.data.doc_status
 		let docs = this.state.data.documents
 		let social_docs = this.state.documents
+		let extras = this.state.data.extra
 
+		let extra;
+		if(extras){
+			extra = Object.keys(extras).map(keys => {
+				return<h6>{keys} : {extras[keys]}</h6>
+			})
+		}
 
 		let social;
 		if(social_docs){
@@ -126,14 +136,14 @@ class LoanView extends Component {
 		let doc
 		if(docs){
 			doc = docs.map(keys => {
-				return<div><h6>Entity Scope : {keys.entity_scope} </h6>
-				<h6> Entity Type: {keys.entity_type} </h6></div>
+				return<div><h6> Scope: {keys.entity_scope} </h6><br/>
+				<h6> Type: {keys.entity_type} </h6></div>
 			})
 		}
 		let doc_stat;
 		if(doc_status){
 			doc_stat = Object.keys(doc_status).map(keys => {
-				return <h6>{keys} : {doc_status[keys]}</h6>
+				return <h6>{doc_status[keys]}</h6>
 			})
 		}
 		let information
@@ -153,14 +163,29 @@ class LoanView extends Component {
 		}
 		return(
 		<div>
+		<Navbar />
 			<section className="main">
 				<div className="form">
-					{name}
-			{information}
-			{doc}
-			{doc_stat}
-			{social}
-			<button style={{visibility: this.state.button}} onClick={this.handleClick} class="waves-light btn-small">Add</button>
+				{name}
+				<table>
+			        <thead>
+			         <tr>
+			         	 <th>Personal Info</th>
+			              <th>Entities</th>
+			              <th>Documents</th>
+			              <th>Status</th>
+			          </tr>
+			        </thead>
+			        <tbody>
+			          <tr>
+			          	<td>{information}{extra}</td>
+			            <td>{doc}</td>
+			            <td>{social}</td>
+			            <td>{doc_stat}</td>
+			          </tr>
+			        </tbody>
+     		 </table>
+			<button style={{visibility: this.state.button}} onClick={this.handleClick} class="waves-light btn-small">Add/Change</button>
 			<div class="row">
 			    <form style={{visibility: this.state.visibility}} class="col s12" >
 			      <div class="row">
@@ -197,7 +222,7 @@ class LoanView extends Component {
  		 </div>
 				</div>
 			</section>
-			
+			<Footer />
      	</div>
 
 		)

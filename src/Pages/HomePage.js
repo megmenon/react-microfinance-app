@@ -70,53 +70,43 @@ class HomePage extends Component {
 				      </table>
        			</section>
 			</div>
-			<section>
-			<h5>Stories for you</h5> 
-			<div className="row">
-				<div className="col s12 m3">
-					<div className="card card-1 tentips darken-1">
-						<div className="card-content white-text">
-					        <span className="card-title">
-					        	10 tips when applying for a personal loan
-					        </span>
-					        <p>
-						        I am a very simple card. I am good at containing small bits of information.
-						        I am convenient because I require little markup to use effectively.
-					        </p>
-						</div>
-						<div className="card-action">
-						<a>Read More</a>
-						</div>
-					</div>
-					</div>
-					<div class="col1 s12 m3">
-					      <div class="card-panel teal">
-					        <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-					        I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-					        </span>
-					      </div>
-					    </div>
-						<div className="col s12">
-							<div className="card card-2 business darken-1">
-								<div className="card-content white-text">
-							        <span className="card-title">
-							        	3 tips for negotiating a business loan
-							        </span>
-							        <p>
-								        I am a very simple card. I am good at containing small bits of information.
-								        I am convenient because I require little markup to use effectively.
-							        </p>
-								</div>
-								<div className="card-action">
-								<a>Read More</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					</section>
-				</div>
+			<section className="stories">
+			<h5 className="stories">Stories for you</h5> 
+				<div class="row">
+			    <div class="col s12 m6">
+			      <div class="card deep-purple accent-1 darken-1">
+			        <div class="card-content white-text">
+			          <span class="card-title"><b>5 Tips to Avoid a Personal Loan Denial</b></span>
+			          <p>
+			          	Use these to tips to help land the loan that you want and avoid personal loan denial: Pull your credit report and credit score. Keep your employment history in check. Pay off your outstanding loans. Keep your payment history regular. Show a steady stream of income.
+			          </p>
+			        </div>
+			        <div class="card-action">
+			          <a href="#">This is a link</a>
+			          <a href="#">This is a link</a>
+			        </div>
+			      </div>
+			    </div>
+ 			 </div>
+ 			 <div class="row">
+			    <div class="col s12 m6">
+			      <div class="card purple lighten-5 darken-1">
+			        <div class="card-content white-text">
+			          <span class="card-title"><b>Do’s and Don’ts for Getting a Small Business Loan</b></span>
+			          <p>Any lender who is considering grating your business a loan needs to first get a grip on your finances. The easiest way to do that is to have a separate account and books for your business.
+			          Gerri Detweiler, education director for business credit marketplace Nav, said in a phone interview with Small Business Trends, 
+			          </p>
+			        </div>
+			        <div class="card-action">
+			          <a href="#">Read More</a>
+			        </div>
+			      </div>
+			    </div>
+ 			 </div>
 			</section>
-			<Footer />
+			</div>
+		</section>
+	<Footer />
 		</div>
 		);
 	}
