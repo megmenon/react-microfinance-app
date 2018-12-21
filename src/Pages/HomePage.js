@@ -34,41 +34,7 @@ class HomePage extends Component {
 				<div className="form">
 				<h1 className="heading">Welcome!</h1>
 					<div>
-					<section className="myloans">
-						<h5>My Loans</h5>
-						<table className="loans">
-				        <thead>
-				          <tr>
-				              <th>Description</th>
-				              <th>Balance</th>
-				              <th>Due Date</th>
-				          </tr>
-				        </thead>
-
-				        <tbody>
-				          <tr className="tr">
-				            <td>Food Truck</td>
-				            <td>$2000</td>
-				            <td>Dec 20, 2018</td>
-				            <Link to="/view/1"><button class="waves-light btn-small">View</button></Link> <br/>
-				            <Link to="/confirm"><button class="waves-light btn-small">Pay</button></Link>
-				          </tr>
-				          <tr className="tr">
-				            <td>Truck maintenance</td>
-				            <td>$500</td>
-				            <td>Jan 1, 2019</td>
-				            <a class="waves-light btn-small">View</a><br/>
-				            <a class="waves-light btn-small">Pay</a>
-				          </tr>
-				          <tr className="tr">
-				            <td>Home repair</td>
-				            <td>$0</td>
-				            <td className="status">Complete</td>
-				            <a class="waves-light btn-small">View</a>
-				          </tr>
-				        </tbody>
-				      </table>
-       			</section>
+					
 			</div>
 			<section className="stories">
 			<h5 className="stories">Stories for you</h5> 
