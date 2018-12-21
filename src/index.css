@@ -1,4 +1,5 @@
-body {
+@media only screen and (min-device-width: 320px) and (max-device-width: 1000px){
+	body {
   margin: 0;
   padding: 0;
   font-family: American Typewriter, serif;
@@ -6,6 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -18,6 +20,7 @@ code {
 .title {
 
 }
+
 .form{
 	padding: 30px;
 	margin: 25%;
@@ -64,6 +67,56 @@ h3{
 	margin-top: 2%;
 }
 
+.topnav {
+  overflow: hidden;
+  background-color: #1a237e;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 2px 18px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.active {
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
 .btn {
 	font-family: American Typewriter, serif;
 }
@@ -76,7 +129,7 @@ a{
 }
 
 .waves-light{
-	margin-top: 7%;
+	margin-top: -6%;
 }
 
 .container img {
@@ -96,53 +149,48 @@ a{
 	margin-top: 15%;
 	background-color: #3B0097;
 }
+
 .products{
-	margin-top: 2%;
-}
-
-.Copyright{
-	margin-top: 2%;
+	margin-top: 10%;
+	margin-left: 35%;
 	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
 }
 
-.company{
-	margin-left: 30%;
-	margin-top: -19%;
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+  margin-left: 5%;
+  margin-top: 5%;
 }
 
-.legal{
-	margin-left: 55%;
-	margin-top: -14%;
+.row {margin: 0 -5px;}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-.questions{
-	margin-left: 80%;
-	margin-top: -15%;
-}
 
-.card-content{
-	font-size: 30px;
+@media screen and (max-width: 1000px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
 }
 
 .card {
-	width: 500px;
-	margin-left: 25%
-}
-
-.card1{
-	margin-left: 20%;
-	margin-top: 50%;
-}
-
-.tentips {
-	margin-top: 100%;
-	margin-left: -5%;
-}
-
-.business{
-	width: 400px;
-	margin-left: 65%;
-	margin-top: -36%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color:#009688;
+  color: black;
 }
 
 .white-text{
@@ -159,32 +207,27 @@ a{
 }
 
 .details{
-	margin-left: 12%;
-	margin-top: 10%;
-	width: 300px;
+	/*margin-top: 10%;
+	width: 300px;*/
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
 }
 
-.transparency{
-	margin-left: 43%;
-	margin-top: -13%;
-	width: 300px;
-}
-
-.together {
-	margin-top: -12%;
-	width: 300px;
-	margin-left: 75%;
-}
 .box{
 	margin-top: 15%;
 	height: 50px;
 }
 
 .raise{
-	background-color: #e0e0e0;
-	height: 400px;
-	padding: 80px;
-	margin-top: 30%;
+	margin-top: 15%;
+	background-color: #efebe9;
+	height: 300px;
+	padding: 100px;
+}
+
+.membership{
+	margin-left: 10%;
 }
 
 .card-heading{
@@ -196,10 +239,3 @@ p{
 	margin-right: 10%;
 }
 
-@media only screen and (max-width:620px) {
-  /* For mobile phones: */
-  .form .main, .container .card .card1 .card-content.company .legal .questions .together .transparency .details 
-  .raise {
-    width:100%;
-  }
-}

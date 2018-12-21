@@ -15,7 +15,9 @@ class Register extends Component {
 			phone: '',
 			is_business: false,
 			color_one: '#000000',
-			color_two: '#000000'
+			color_two: '#000000',
+			visibility: 'visible',
+			confirmed: 'hidden'
 		}
 	}
 
@@ -95,6 +97,8 @@ class Register extends Component {
 				password: '',
 				email: '',
 				phone: '',
+				visibility: 'hidden',
+				confirmed: 'visible'
 			})
 		})
 	}
@@ -104,10 +108,13 @@ class Register extends Component {
 			<Navbar />
 			<section className="container">
 			<div className="form">
-				<h3 className="heading">
+				<h3 style={{visibility: this.state.visibility}} className="heading">
 					<b>Let's start with some basics.</b>
 				</h3>
-				  <div className="row">
+				<h3 style={{visibility: this.state.confirmed}} className="heading">
+					<b>Done!</b>
+				</h3>
+				  <div style={{visibility: this.state.visibility}} className="row">
 				    <form className="col s12">
 				      <div className="row">
 				        <div className="input-field col s12">
@@ -136,7 +143,7 @@ class Register extends Component {
 				          <button style={{color: this.state.color_two}} onClick={this.handleNo}>No</button>
 				        </div>
 				      </div>
-				    <Link to="//user/5c10ae89bb650f0068118902"><button id="btn" className="waves-effect waves-light btn btn-large" onClick={this.handleClick}>Register</button></Link>
+				  		<button onClick={this.handleClick}class="waves-light btn-small">Register</button>
 				    </form>
 				  </div>
 				  </div>

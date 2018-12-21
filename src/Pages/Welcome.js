@@ -12,18 +12,28 @@ class Welcome extends Component {
 						<img className= "image" src={require('../microfi2.png')}/>
 					</section>
 						<h1>Get Your Money Right.</h1>
-						<section className="details">
-						<h3><b>Get started in Minutes</b></h3>
-						<h5>Speed matters. Which is why you can check your loan rates or start investing—online and in minutes.</h5>
-						</section>
-						<section className="transparency">
-						<h3><b>Transparency is out policy</b></h3>
-						<h5>We’re big fans of the phrase, “what you see is what you get.” No hidden fees, no hidden meanings.</h5>
-						</section>
-						<section className="together">
-						<h3><b>All together now</b></h3>
-						<h5>We’re big fans of the phrase, “what you see is what you get.” No hidden fees, no hidden meanings.</h5>
-						</section>
+						<div class="row">
+						  <div class="column">
+						    <div class="card">
+						      <h3><b>Get started in Minutes</b></h3>
+						      <p>Speed matters. Which is why you can check your loan rates or start investing—online and in minutes.</p>
+						    </div>
+						  </div>
+
+						  <div class="column">
+						    <div class="card">
+						      <h3><b>Transparency is out policy</b></h3>
+						      <p>We’re big fans of the phrase, “what you see is what you get.” No hidden fees, no hidden meanings.</p>
+						    </div>
+						  </div>
+						  
+						  <div class="column">
+						    <div class="card">
+						      <h3><b>All together now</b></h3>
+						      <p>We’re big fans of the phrase, “what you see is what you get.” No hidden fees, no hidden meanings.</p>
+						    </div>
+						  </div>
+						</div>
 						 <div class="row">
 						 <div className="box">
 						    <div class="col l4 m4">
@@ -54,15 +64,10 @@ class Welcome extends Component {
 						      </div>
 						    </div>
 						  </div>
-						  <section className="raise">
-						  	<h1>Get that raise</h1>
-						  	<h3 className="forreal">Our new interactive too	can help you get a raise. 
-							For real.</h3>
-						  	</section>
-						  	<section>
-						  	<h2 className="benefits">Our membership has its benefits.</h2>
-						  	</section>
 						  </div>
+						  <h1 className="raise">Get That Raise.
+						  <p className="membership">Our membership has it's benefits</p>
+						  </h1>
 					</section>
 				<Footer />
 			</div>

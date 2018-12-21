@@ -23,47 +23,10 @@ class Footer extends Component {
             </div>
           </div>
           <div>
-            <div class="container">
-              <h6 className="products"><b>Products</b><br/><br/>
-              Student Loan Refinancing <br/>
-              Medical/Dental <br/>
-              Resident Refinancing <br/>
-              Mortgage Loans <br/>
-              Mortgage Refinancing <br/>
-              Personal Loans <br/>
-              Parent PLUS Refinancing <br/>
-              Wealth Management <br/>
-              Life Insurance <br/>
-              SoFi Money™ <br/>
-              </h6>
-              <h6 className="Copyright">© 2018 Copyright</h6>
-              <h6 className="company"><b>Company</b><br/><br/>
-                About Us <br/>
-                How it Works<br/>
-                Reviews <br/>
-                Press <br/>
-                Jobs <br/>
-                Blog <br/>
-                FAQ <br/>
-              </h6>
-              <h6 className="legal"><b>Legal</b><br/> <br/>
-              Privacy & Security <br/>
-              Terms of Use <br/>
-              Disclaimers <br/>
-              Licenses <br/>
-              NMLS Access Opens A New Window. <br/>
-              Eligibility Criteria <br/>
-              Accessibility <br/>
-              Business Continuity</h6>
-              <h6 className="questions">
-                <b>Questions</b><br/> <br/>
-                FAQ <br/>
-                Contact Us <br/>
-                Tweet @So-Fi <br/>
-                Customer Support: <br/>
-                For Customer Support Call (855)456-7634 <br/>
-                Mon-Thu 4:00 AM - 9:00 PM PT <br/>
-                Fri-Sun 4:00 AM - 5:00 PM PT <br/>
+            <div className="container">
+              <h6 className="products"><br/><br/>
+                About Us | How it Works | Contact Us | Tweet @So-Fi | Jobs | Blog <br/><br/>
+                © 2018 Copyright
               </h6>
             </div>
           </div>

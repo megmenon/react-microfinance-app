@@ -50,8 +50,8 @@ class HomePage extends Component {
 				            <td>Food Truck</td>
 				            <td>$2000</td>
 				            <td>Dec 20, 2018</td>
-				            <Link to="/view/1"><button onClick={this.handleClick} class="waves-light btn-small">View</button></Link> <br/>
-				            <Link to="/confirm"><button onClick={this.handleClick} class="waves-light btn-small">Pay</button></Link>
+				            <Link to="/view/1"><button class="waves-light btn-small">View</button></Link> <br/>
+				            <Link to="/confirm"><button class="waves-light btn-small">Pay</button></Link>
 				          </tr>
 				          <tr className="tr">
 				            <td>Truck maintenance</td>
