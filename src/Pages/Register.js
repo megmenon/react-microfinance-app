@@ -3,6 +3,7 @@ import header from '../constants/index.js';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Facebook from 'react-facebook-login';
 import '../index.css';
 
 class Register extends Component {
@@ -113,6 +114,7 @@ class Register extends Component {
 				</h3>
 				<h3 style={{visibility: this.state.confirmed}} className="heading">
 					<b>Done!</b>
+					<Link to='/profile'><button className="waves-light btn-small">Go To Profile</button></Link>
 				</h3>
 				  <div style={{visibility: this.state.visibility}} className="row">
 				    <form className="col s12">
@@ -140,10 +142,10 @@ class Register extends Component {
 				        <div className="input-field col s12">
 				          <h6> Is this a business account?</h6>
 				          <button style={{color: this.state.color_one}} onClick={this.handleYes}>Yes</button> {''}{''}{''}
-				          <button style={{color: this.state.color_two}} onClick={this.handleNo}>No</button>
+				          <button style={{color: this.state.color_two}} onClick={this.handleNo}>No</button> <br/> <br/> <br/>
 				        </div>
 				      </div>
-				  		<button onClick={this.handleClick}class="waves-light btn-small">Register</button>
+				  		<button onClick={this.handleClick}className="waves-light btn-small">Register</button>
 				    </form>
 				  </div>
 				  </div>

@@ -47,6 +47,10 @@ h3{
 	font-size: 35px;
 	font-family: American Typewriter, serif;
 }
+#john{
+	font-size: 30px;
+	margin-left: 30%;
+}
 
 .stories{
 	text-align: left;
@@ -120,6 +124,7 @@ h3{
 .btn {
 	font-family: American Typewriter, serif;
 }
+
 a{
 	font-family: American Typewriter, serif;
 }
@@ -203,7 +208,17 @@ a{
 }
 
 .tr{
+	height: 120px;
+}
+
+.td{
+	width: 800px;
+	height: 300px;
+}
+
+.t{
 	height: 100px;
+	padding: 30px;
 }
 
 .details{
@@ -212,6 +227,13 @@ a{
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: row;
+}
+
+.fb{
+	margin-top: 10%;
+	margin-left: 40%;
+	font-size: 20px;
+	font-family: American Typewriter, serif;
 }
 
 .box{

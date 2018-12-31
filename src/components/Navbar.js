@@ -9,10 +9,10 @@ class Navbar extends Component {
 			<div>
 				<nav className="topnav" id="myTopnav">
 					<div class="topnav" id="myTopnav">
-					  <a class="active"><Link to="/">Home</Link></a>
-					  <a><Link to="/register">Apply</Link></a>
-					  <a><Link to="/user/5c10ae89bb650f0068118902">My Profile</Link></a>
-					  <a><button className="waves-light btn-small">Find My Rate</button></a>
+					  <a class="active" href="/">Home</a>
+					  <a href="/register">Register</a>
+					  <a href="/profile">My Profile</a>
+					  <a><button className="waves-light btn-small button">Find My Rate</button></a>
 					</div>
   				</nav>
 			</div>

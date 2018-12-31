@@ -10,17 +10,14 @@ class LoanView extends Component {
 		super(props)
 		this.state = {
 			data: [],
-			documents: [],
+			person: [],
+			scope: [],
+			social: [],
+			type: [],
+			virtual_doc: [],
+			virtual_status: [],
 			visibility: 'hidden',
 			button: 'visible',
-			name: 'Cute Cat',
-			street: '39878 Parada St',
-			city: 'Newark',
-			st: 'CA',
-			zip: '94560',
-			country: 'US',
-			email: 'cutecat@gmail.com',
-			phone: '5108762345',
 			virtual_type: 'SSN',
 			virtual_value: '222'
 		}
@@ -35,10 +32,14 @@ class LoanView extends Component {
 		.then(data => {
 			this.setState({
 				data: data,
-				documents: data.documents[0].social_docs[0]
+				person: data.documents[0].name,
+				scope: data.documents[0].entity_scope,
+				type: data.documents[0].entity_type,
+				social: data.documents[0].social_docs,
+				virtual_doc: data.documents[1].virtual_docs[0].document_type,
+				virtual_status: data.documents[1].virtual_docs[0].status
 			})
 			console.log(data)
-			console.log(this.state.documents)
 		})
 	}
 
@@ -52,14 +53,6 @@ class LoanView extends Component {
 
 	handleChange = e => {
 		this.setState({
-			[e.target.name]: e.target.value,
-			[e.target.street]: e.target.value,
-			[e.target.city]: e.target.value,
-			[e.target.st]: e.target.value,
-			[e.target.zip]: e.target.value,
-			[e.target.country]: e.target.value,
-			[e.target.email]: e.target.value,
-			[e.target.phone]: e.target.value,
 			[e.target.virtual_type]: e.target.value,
 			[e.target.virtual_value]: e.target.value,
 		})
@@ -72,21 +65,21 @@ class LoanView extends Component {
 			headers: header,
 			body: JSON.stringify({
 					documents: [{
-			      	email: this.state.email,
-			        phone_number: this.state.phone,
+			      	email: 'mmenon.0419@gmail.com',
+			        phone_number: '5109363244',
 			        ip:"::1",
-			        name: this.state.name,
+			        name: 'John Doe',
 			        alias:"Test",
-			        entity_type:"M",
-			        entity_scope:"Arts & Entertainment",
+			        entity_type:"LLC",
+			        entity_scope:"Food/Grocery",
 			        day:2,
 			        month:5,
 			        year:1989,
-			        address_street: this.state.street,
-			        address_city: this.state.city,
-			        address_subdivision: this.state.st,
-			        address_postal_code: this.state.zip,
-			        address_country_code: this.state.country,
+			        address_street: '39878 Parada St',
+			        address_city: 'Newark',
+			        address_subdivision: 'CA',
+			        address_postal_code: '94560',
+			        address_country_code: 'US',
 			        virtual_docs:[{
 			            document_value: this.state.virtual_value,
 			            document_type: this.state.virtual_type
@@ -99,47 +92,55 @@ class LoanView extends Component {
 			this.setState({
 			visibility: 'hidden',
 			button: 'visible',
-			name: '',
-			street: '',
-			city: '',
-			st: '',
-			zip: '',
-			country: '',
-			email: '',
-			phone: '',
 			virtual_type: '',
 			virtual_value: ''
 			})
 		})
 	}
 	render(){
-		let person_name = this.state.data.legal_names
+		let person = this.state.person
 		let info = this.state.data.phone_numbers
 		let doc_status = this.state.data.doc_status
-		let docs = this.state.data.documents
-		let social_docs = this.state.documents
-		let extras = this.state.data.extra
+		let scope = this.state.scope
+		let type = this.state.type
+		let virtual = this.state.virtual_doc
+		let details = this.state.social
+		let virtual_status = this.state.virtual_status
 
-		let extra;
-		if(extras){
-			extra = Object.keys(extras).map(keys => {
-				return<h6>{keys} : {extras[keys]}</h6>
+		let name 
+		if(person){
+			name = person
+		}
+
+		let deets 
+		if(details){
+			deets = details.map(keys => {
+				return <div><h6>{keys.document_type} : {keys.status}</h6>
+				</div>
 			})
 		}
 
-		let social;
-		if(social_docs){
-			social = Object.keys(social_docs).map(keys => {
-				return <h6>{keys} : {social_docs[keys]}</h6>
-			})
+		let virtualDoc
+		if(virtual){
+			virtualDoc = virtual
 		}
-		let doc
-		if(docs){
-			doc = docs.map(keys => {
-				return<div><h6> Scope: {keys.entity_scope} </h6><br/>
-				<h6> Type: {keys.entity_type} </h6></div>
-			})
+
+		let virtualStat
+		if(virtual_status){
+			virtualStat = virtual_status
 		}
+
+		let type1
+		if(type){
+			type1 = type
+		}
+
+		let scope1
+		if(scope){
+			scope1 = scope
+		}
+
+
 		let doc_stat;
 		if(doc_status){
 			doc_stat = Object.keys(doc_status).map(keys => {
@@ -153,73 +154,43 @@ class LoanView extends Component {
 			})
 		}
 
-		let name;
-		if(person_name) {
-			name = Object.keys(person_name).map(keys => {
-				return <h1 className="heading">Hello, {person_name[keys]} !</h1>
-			})
-		} else {
-			name = null
-		}
 		return(
 		<div>
 		<Navbar />
 			<section className="main">
 				<div className="form">
-				{name}
 				<table>
 			        <thead>
 			         <tr>
 			         	 <th>Personal Info</th>
-			              <th>Entities</th>
-			              <th>Documents</th>
-			              <th>Status</th>
+			              <th>Entity</th>
+			              <th>Virtual Documents</th>
+			              <th>Social Documents</th>
 			          </tr>
 			        </thead>
-			        <tbody>
-			          <tr>
-			          	<td>{information}{extra}</td>
-			            <td>{doc}</td>
-			            <td>{social}</td>
-			            <td>{doc_stat}</td>
+			        <tbody className="td">
+			          <tr className="td">
+			          	<td className="td">Name: {name} <br/> {information}</td>
+			            <td className="td">Scope: {scope1} <br/> Type: {type1}</td>
+			            <td className="td">Type: {virtualDoc} <br/> Status: {virtualStat}</td>
+			            <td className="td">{deets}</td>
 			          </tr>
 			        </tbody>
-     		 </table>
-			<button style={{visibility: this.state.button}} onClick={this.handleClick} class="waves-light btn-small">Add/Change</button>
+     		 </table> <br/><br/><br/>
+			<button style={{visibility: this.state.button}} onClick={this.handleClick} class="waves-light btn-small">Update</button><br/><br/>
+			<Link to="/profile"><button class="waves-light btn-small">Back</button></Link>
 			<div class="row">
 			    <form style={{visibility: this.state.visibility}} class="col s12" >
 			      <div class="row">
-			        <div class="input-field col s6">
-			        	<h6>Name</h6>
-				         	<input placeholder="Full Name"type="text" name="name" onChange={this.handleChange}/>
-					        <h6>Address</h6>
-					          <input placeholder="street address" type="text" name="street" onChange={this.handleChange}/>
-					           <input placeholder="city" type="text" name="city" onChange={this.handleChange}/>
-					           <input placeholder="state" type="text" name="st" onChange={this.handleChange} />
-					           <input placeholder="zip" type="text" name="zip" onChange={this.handleChange}/>
-					           <input placeholder="country" type="text" name="country" onChange={this.handleChange}/>
-			        </div>
 			        <div class="input-field col s6">
 				         <h6>Virtual Documents</h6>
 				         <input placeholder="type"type="text" name="virtual_type" onChange={this.handleChange}/>
 				          <input placeholder="value"type="text" name="virtual_value" onChange={this.handleChange}/>
 			        </div>
 			      </div>
-			      <div class="row">
-				        <div class="input-field col s6">
-				        	<h6>Phone</h6>
-				          	<input placeholder="example: 5104441234" id="phone" name="phone" onChange={this.handleChange}/>
-				        </div>
-			      </div>
-			      <div class="row">
-				        <div class="input-field col s6">
-				        <h6>Email</h6>
-				          <input id="email" type="email" name="email" onChange={this.handleChange} />
-				        </div>
-			      </div>
-			      <button onClick={this.handleForm} class="waves-light btn-small">Submit</button>
+			      <button onClick={this.handleForm} className="waves-light btn-small">Submit</button>
 			    </form>
- 		 </div>
+ 		 	</div>
 				</div>
 			</section>
 			<Footer />

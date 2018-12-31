@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import header from '../constants/index.js';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
 import '../index.css'
 
 class ConfirmPay extends Component {
@@ -63,18 +64,19 @@ class ConfirmPay extends Component {
 			<section className="main">
 				<div className="form">
 					<div style={{visibility: this.state.visibility}} >
+					<div style={{visibility: this.state.confirmed}}>
+						<h4>Done! <br/><br/>
+							<Link to="/profile"><button className="waves-light btn-small">Go To Profile</button></Link>
+						</h4>
+					</div>
 						<h4>Minimum Amount = $25.50</h4>
 						<h6> $25 + Interest 2% ($0.50)</h6>
 						<div>
 						    <input placeholder="Enter Amount"type="text" name="amount" onChange={this.handleChange}/>
-					     </div>
-						<button onClick={this.handleClick} className="waves-light btn-small">Confirm</button> 
+					     </div> <br/><br/><br/>
+						<button onClick={this.handleClick} className="waves-light btn-small">Confirm</button> <br/><br/>
+						<Link to='/profile'><button className="waves-light btn-small">Back</button></Link>
 					</div>
-					<section className="main">
-					<div className="form">
-					<h4 style={{visibility: this.state.confirmed}}>Done!</h4>
-					</div>
-					</section>
 				</div>
 			</section>
 			<Footer />
