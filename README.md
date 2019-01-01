@@ -9,3 +9,4 @@ Constants/index.js file needs to be updated based on user info to make API calls
 
 To start run 'npm start'
 
+![](images/screenshot.png)
