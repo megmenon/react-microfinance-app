@@ -6,7 +6,7 @@ const header = {
 	'Content-Type': 'application/json',
 	'X-SP-GATEWAY':'client_id_t0pFaeVnZTifBKz8Mw6c5SbLOxyIYsCkQD2hlHgA|client_secret_BinNe8Jx6uksY9CX02jIgdL5HAhmOETlMW4wrzGF',
 	'X-SP-USER-IP':'192.168.1.50',
-	'X-SP-USER':'oauth_OsQCvrcB6EthGjWVYkJ00dnK8qTaZ9eFu3PUl7wi|96cc19a6d931c753c12f369e683cdf5e'
+	'X-SP-USER':'oauth_c2aQjTLoR4KJXg0k8AvMHn0EDZryOhNeG7i6z1xd|96cc19a6d931c753c12f369e683cdf5e'
 }
 
 export default header;

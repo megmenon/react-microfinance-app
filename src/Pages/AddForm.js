@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import header from '../constants/index.js';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
 import '../index.css';
 
 
@@ -18,7 +19,9 @@ class AddForm extends Component {
 			email: 'mmenon.0419@gmail.com',
 			phone: '5109363244',
 			type: 'M',
-			scope: 'Arts & Entertainment'
+			scope: 'Arts & Entertainment',
+			visibility: 'visible',
+			vis: 'hidden'
 		}
 	}
 
@@ -66,7 +69,23 @@ class AddForm extends Component {
    				 }]
 			})
 		})
-		.then(res => console.log("done",res));
+		.then(res => console.log("done",res))
+		.then(res => {
+			this.setState({
+			name: '',
+			street: '',
+			city: '',
+			st: '',
+			zip: '',
+			country: '',
+			email: '',
+			phone: '',
+			type: '',
+			scope: '',
+			visibility: 'hidden',
+			vis: 'visible'
+			})
+		})
 	}
 	render() {
 		return (
@@ -74,41 +93,50 @@ class AddForm extends Component {
 			<Navbar />
 			<section className="container">
 			<div className="form">
-			<h3 className="heading">
-					<b>Let's start with some basics.</b>
+			<div style={{visibility: this.state.vis}}>
+				<h3>
+					<b>Done!</b><br/><br/>
+						<Link to='/profile'><button className="waves-light btn-small">Go To Profile</button></Link>
 				</h3>
-				  <div className="row">
-				    <form className="col s12">
-				      <div className="row">
-				        <div className="input-field col s12">
-				        <h6>Full Name</h6>
-				          <input id="name" type="text" name="name" onChange={this.handleChange}/>
-				          <h6>Address</h6>
-				          	<div className="input-field col s12">
-				          		<div className="input-field col s12">
-				          	   <input placeholder="street address" type="text" name="street" onChange={this.handleChange}/>
-					           <input placeholder="city" type="text" name="city" onChange={this.handleChange}/>
-					           <input placeholder="state" type="text" name="st" onChange={this.handleChange} />
-					           <input placeholder="zip" type="text" name="zip" onChange={this.handleChange}/>
-					           <input placeholder="country" type="text" name="country" onChange={this.handleChange}/>
-					           </div>
+			</div>
+			<div style={{visibility: this.state.visibility}}>
+				<h3 className="heading">
+						<b>Let's start with some basics.</b>
+					</h3>
+					  <div className="row">
+					    <form className="col s12">
+					      <div className="row">
+					        <div className="input-field col s12">
+					        <h6>Full Name</h6>
+					          <input id="name" type="text" name="name" onChange={this.handleChange}/>
+					          <h6>Address</h6>
+					          	<div className="input-field col s12">
+					          		<div className="input-field col s12">
+					          	   <input placeholder="street address" type="text" name="street" onChange={this.handleChange}/>
+						           <input placeholder="city" type="text" name="city" onChange={this.handleChange}/>
+						           <input placeholder="state" type="text" name="st" onChange={this.handleChange} />
+						           <input placeholder="zip" type="text" name="zip" onChange={this.handleChange}/>
+						           <input placeholder="country" type="text" name="country" onChange={this.handleChange}/>
+						           </div>
+						        </div>
+						        <h6>Email</h6>
+						        <input type="email" name="email" onChange={this.handleChange} />
+						        <h6>Phone</h6>
+					          	<input id="phone" name="phone" onChange={this.handleChange}/>
+					          	<h6>Entity Type</h6>
+					          	<input placeholder="Example: PARTNERSHIP" name="type" onChange={this.handleChange}/>
+					          	<h6>Entity Scope</h6>
+					          	<input placeholder="Example: pet services" name="scope" onChange={this.handleChange}/>
 					        </div>
-					        <h6>Email</h6>
-					        <input type="email" name="email" onChange={this.handleChange} />
-					        <h6>Phone</h6>
-				          	<input id="phone" name="phone" onChange={this.handleChange}/>
-				          	<h6>Entity Type</h6>
-				          	<input placeholder="Example: PARTNERSHIP" name="type" onChange={this.handleChange}/>
-				          	<h6>Entity Scope</h6>
-				          	<input placeholder="Example: pet services" name="scope" onChange={this.handleChange}/>
-				        </div>
-				      </div>
-				      <button id="btn" className="waves-effect deep-purple darken-2 btn-large" onClick={this.handleClick}>Submit</button>
-				    </form>
-				  </div>
-				  </div>
-				  </section>
-				<Footer />
+					      </div>
+					      <button id="btn" className="waves-light btn-small" onClick={this.handleClick}>Submit</button><br/><br/>
+					      	<Link to="/profile"><button id="btn" className="waves-light btn-small">Back</button></Link>
+					    </form>
+					  </div>
+					</div>
+				</div>
+			</section>
+			<Footer />
 			</div>
 		);
 	}

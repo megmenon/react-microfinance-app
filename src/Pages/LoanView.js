@@ -6,9 +6,8 @@ import Footer from '../components/Footer';
 import '../index.css';
 
 class LoanView extends Component {
-	constructor(props){
-		super(props)
-		this.state = {
+	
+		state = {
 			data: [],
 			person: [],
 			scope: [],
@@ -18,10 +17,9 @@ class LoanView extends Component {
 			virtual_status: [],
 			visibility: 'hidden',
 			button: 'visible',
-			virtual_type: 'SSN',
-			virtual_value: '222'
+			business_scope: 'Food/Grocery',
+			business_type: 'LLC'
 		}
-	}
 
 	componentDidMount = () => {
 			fetch('https://uat-api.synapsefi.com/v3.1/users/5c10ae89bb650f0068118902', {
@@ -30,16 +28,21 @@ class LoanView extends Component {
 		})
 		.then(res => res.json())
 		.then(data => {
+			var btype 
+			for(var i = 1; i < data.documents.length + 1; i++){
+				btype = data.documents[i - 1]
+			}
 			this.setState({
 				data: data,
-				person: data.documents[0].name,
-				scope: data.documents[0].entity_scope,
-				type: data.documents[0].entity_type,
-				social: data.documents[0].social_docs,
-				virtual_doc: data.documents[1].virtual_docs[0].document_type,
-				virtual_status: data.documents[1].virtual_docs[0].status
+				person: data.documents[3].name,
+				scope: btype.entity_scope,
+				type: btype.entity_type,
+				social: btype.social_docs,
+				virtual_doc: btype.virtual_docs[0].document_type,
+				virtual_status: btype.virtual_docs[0].status
 			})
 			console.log(data)
+			console.log(this.state.type)
 		})
 	}
 
@@ -51,10 +54,16 @@ class LoanView extends Component {
 		})
 	}
 
-	handleChange = e => {
+	handleScope = e => {
 		this.setState({
-			[e.target.virtual_type]: e.target.value,
-			[e.target.virtual_value]: e.target.value,
+
+			business_scope: e.target.value
+		})
+	}
+
+	handleType = e => {
+		this.setState({
+			business_type: e.target.value
 		})
 	}
 
@@ -70,8 +79,8 @@ class LoanView extends Component {
 			        ip:"::1",
 			        name: 'John Doe',
 			        alias:"Test",
-			        entity_type:"LLC",
-			        entity_scope:"Food/Grocery",
+			        entity_type: this.state.business_type,
+			        entity_scope: this.state.business_scope,
 			        day:2,
 			        month:5,
 			        year:1989,
@@ -81,8 +90,8 @@ class LoanView extends Component {
 			        address_postal_code: '94560',
 			        address_country_code: 'US',
 			        virtual_docs:[{
-			            document_value: this.state.virtual_value,
-			            document_type: this.state.virtual_type
+			            document_value: '222',
+			            document_type: 'SSN'
 			        }]
         		}]
 			})
@@ -92,8 +101,8 @@ class LoanView extends Component {
 			this.setState({
 			visibility: 'hidden',
 			button: 'visible',
-			virtual_type: '',
-			virtual_value: ''
+			business_scope: '',
+			business_type: ''
 			})
 		})
 	}
@@ -183,15 +192,16 @@ class LoanView extends Component {
 			    <form style={{visibility: this.state.visibility}} class="col s12" >
 			      <div class="row">
 			        <div class="input-field col s6">
-				         <h6>Virtual Documents</h6>
-				         <input placeholder="type"type="text" name="virtual_type" onChange={this.handleChange}/>
-				          <input placeholder="value"type="text" name="virtual_value" onChange={this.handleChange}/>
+			        	<h6>Scope</h6>
+			        	 <input placeholder="Example: Food/Grocery" type="text" value={this.state.business_scope} onChange={this.handleScope}/>
+			        	<h6>Type</h6>
+			        	<input placeholder="Example: PARTNERSHIP"type="text" value={this.state.business_type} onChange={this.handleType}/>
 			        </div>
 			      </div>
 			      <button onClick={this.handleForm} className="waves-light btn-small">Submit</button>
 			    </form>
  		 	</div>
-				</div>
+			</div>
 			</section>
 			<Footer />
      	</div>

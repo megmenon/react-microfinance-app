@@ -11,8 +11,7 @@ class ProfilePage extends Component {
 		person: '',
 		scope1: [],
 		tran1: [],
-		scope2: [],
-		tran2: []
+		scope2: []
 	}
 	componentDidMount = () => {
 
@@ -29,19 +28,19 @@ class ProfilePage extends Component {
 		.then(res => res.json())
 		
 		Promise.all([request1, request2]).then(values => {
+			var btype 
+			var btype2
+			for(var i = 1; i < values[0].documents.length + 1; i++){
+				btype = values[0].documents[i - 1]
+			}
 			this.setState({
-				person: values[0].documents[0].name,
-				scope1: values[0].documents[0].entity_scope,
+				person: values[0].documents[2].name,
+				scope1: btype.entity_scope,
 				tran1: values[1].trans[0].amount,
-				scope2: values[0].documents[1].entity_scope,
-				tran2: values[1].trans[1].amount
+				scope2: values[0].documents[1].entity_scope
 			})
 			console.log(values)
-			console.log(this.state.type1)
-			console.log(this.state.type2)
-			console.log(this.state.scope2)
-			console.log(this.state.tran1)
-			console.log(this.state.tran2)
+			
 		})
 
 		// 	fetch('https://uat-api.synapsefi.com/v3.1/users/5c10ae89bb650f0068118902', {
@@ -62,7 +61,7 @@ class ProfilePage extends Component {
 		let tran_1 = this.state.tran1
 
 		let scope_2 = this.state.scope2
-		let tran_2 = this.state.tran2
+		
 
 		let name 
 		if(person){
@@ -83,13 +82,6 @@ class ProfilePage extends Component {
 		if(tran_1){
 			amount1 = Object.keys(tran_1).map(keys => {
 				return <div>{tran_1[keys]}</div>
-			})
-		}
-
-		let amount2
-		if(tran_2){
-			amount2 = Object.keys(tran_2).map(keys => {
-				return <div>{tran_2[keys]}</div>
 			})
 		}
 
@@ -114,7 +106,7 @@ class ProfilePage extends Component {
 					<tbody>
 					    <tr>
 					      <th scope="row">1</th>
-					      <td>Store Renovation</td>
+					      <td>Renovation</td>
 					      <td>{scope1}</td>
 					      <td>$2000</td>
 					      <td>{amount1}</td>
@@ -128,7 +120,7 @@ class ProfilePage extends Component {
 					      <td>Food Truck Repair</td>
 					      <td>{scope2}</td>
 					      <td>$5000</td>
-					      <td>{amount2}</td>
+					      <td>80 <br/> USD </td>
 					      <td style={{color: 'red'}}>Feb 1st 2019</td>
 					      <td><button className="waves-light btn-small">View</button><br/><br/>
 					      <button className="waves-light btn-small">Pay</button>
