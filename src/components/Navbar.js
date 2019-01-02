@@ -10,8 +10,8 @@ class Navbar extends Component {
 				<nav className="topnav" id="myTopnav">
 					<div class="topnav" id="myTopnav">
 					  <a class="active" href="/">Home</a>
-					  <a href="/register">Register</a>
-					  <a href="/profile">My Profile</a>
+					  <a href="/profile">User Profile</a>
+					  <a href="/admin">Admin</a>
 					  <a><button className="waves-light btn-small button">Find My Rate</button></a>
 					</div>
   				</nav>

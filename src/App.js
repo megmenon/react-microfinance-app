@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import {Switch, Route} from 'react-router-dom';
-import Register from './Pages/Register';
-import LoanView from './Pages/LoanView';
-import Welcome from './Pages/Welcome';
-import ProfilePage from './Pages/ProfilePage';
-import AddForm from './Pages/AddForm';
-import ConfirmPay from './Pages/ConfirmPay';
+import Register from './UserPages/Register';
+import LoanView from './UserPages/LoanView';
+import Welcome from './UserPages/Welcome';
+import ProfilePage from './UserPages/ProfilePage';
+import AddForm from './UserPages/AddForm';
+import ConfirmPay from './UserPages/ConfirmPay';
+import Home from './AdminPages/HomePage';
+import UserPage from './AdminPages/UserPage';
 import './index.css';
 
 class App extends Component {
@@ -19,6 +21,8 @@ class App extends Component {
       	<Route path= '/view' component={LoanView} />
         <Route path= '/new' component={AddForm} />
         <Route path= '/confirm' component={ConfirmPay} />
+        <Route path= '/admin' component={Home} />
+        <Route path= '/user1' component={UserPage} />
         </Switch>
       </div>
     );

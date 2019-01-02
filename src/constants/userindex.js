@@ -1,4 +1,4 @@
-const header = {
+const userheader = {
 	'Access-Control-Allow-Origin': '*',
 	'Access-Control-Allow-Methods':'POST, GET, OPTIONS, PATCH',
 	"preflightContinue": true,
@@ -6,7 +6,7 @@ const header = {
 	'Content-Type': 'application/json',
 	'X-SP-GATEWAY':'client_id_t0pFaeVnZTifBKz8Mw6c5SbLOxyIYsCkQD2hlHgA|client_secret_BinNe8Jx6uksY9CX02jIgdL5HAhmOETlMW4wrzGF',
 	'X-SP-USER-IP':'192.168.1.50',
-	'X-SP-USER':'oauth_jFuTOABGrKyVb47xdkegz0pt5MEcIoQCUw6JNX90|96cc19a6d931c753c12f369e683cdf5e'
+	'X-SP-USER':'oauth_BNnUtcR42LCIqhG6wZjoY3905KpsbvrfEiD0kXyz|96cc19a6d931c753c12f369e683cdf5e'
 }
 
-export default header;
+export default userheader;
