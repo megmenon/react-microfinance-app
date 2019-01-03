@@ -187,7 +187,7 @@ class LoanView extends Component {
 			        </tbody>
      		 </table> <br/><br/><br/>
 			<button style={{visibility: this.state.button}} onClick={this.handleClick} class="waves-light btn-small">Update</button><br/><br/>
-			<Link to="/profile"><button class="waves-light btn-small">Back</button></Link>
+			<Link to="/profile"><button className="waves-light btn-small">Back</button></Link>
 			<div class="row">
 			    <form style={{visibility: this.state.visibility}} class="col s12" >
 			      <div class="row">

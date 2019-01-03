@@ -29,7 +29,6 @@ class ProfilePage extends Component {
 		
 		Promise.all([request1, request2]).then(values => {
 			var btype 
-			var btype2
 			for(var i = 1; i < values[0].documents.length + 1; i++){
 				btype = values[0].documents[i - 1]
 			}

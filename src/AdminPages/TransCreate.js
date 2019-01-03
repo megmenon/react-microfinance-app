@@ -1,34 +1,24 @@
 import React, { Component } from 'react';
 import header from '../constants/index.js';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
-import '../index.css'
+import Footer from '../components/Footer';
+import '../index.css';
 
-class ConfirmPay extends Component {
-	constructor(props){
-		super(props)
-		this.state = {
-			amount: 25.50,
-			visibility: 'visible',
-			confirmed: 'hidden'
-		}
+class TransCreate extends Component {
+	state = {
+		amount: 0,
+		visibility: 'visible',
+		confirmed: 'hidden'
 	}
-
 	handleChange = e => {
-			this.setState({
+		this.setState({
 			amount: e.target.value
 		})
 	}
-
 	handleClick = e => {
-		if(this.state.amount < 25.50){
-
-			alert("Minimum is $25.50!")
-		}
-		else{
-			e.preventDefault();
-			fetch('https://uat-api.synapsefi.com/v3.1/users/5c10ae89bb650f0068118902/nodes/5c174173d031360068580fdb/trans', {
+		e.preventDefault();
+		fetch('https://uat-api.synapsefi.com/v3.1/users/5c10ae89bb650f0068118902/nodes/5c174173d031360068580fdb/trans', {
 				method: 'POST',
 				headers: header,
 				body: JSON.stringify({
@@ -53,35 +43,33 @@ class ConfirmPay extends Component {
 				confirmed: 'visible'
 				})
 			})
-		}
 	}
 
 	render() {
 		return (
-		<div>
-		<Navbar />
+			<div>
+			<Navbar />
 			<section className="main">
 				<div className="form">
-					<div style={{visibility: this.state.visibility}} >
 					<div style={{visibility: this.state.confirmed}}>
 						<h4>Done! <br/><br/>
-							<Link to="/profile"><button className="waves-light btn-small">Go To Profile</button></Link>
+						<Link to='/admin'><button className="waves-light btn-small">Back</button></Link>
 						</h4>
 					</div>
-						<h4>Minimum Amount = $25.50</h4>
-						<h6> $25 + Interest 2% ($0.50)</h6>
+					<div style={{visibility: this.state.visibility}} >
+						<h4>Enter Amount</h4>
 						<div>
-						    <input placeholder="Enter Amount"type="text" name="amount" onChange={this.handleChange}/>
+						    <input placeholder="Enter Amount"type="text" onChange={this.handleChange}/>
 					     </div> <br/><br/><br/>
 						<button onClick={this.handleClick} className="waves-light btn-small">Confirm</button> <br/><br/>
-						<Link to='/profile'><button className="waves-light btn-small">Back</button></Link>
+						<Link to='/admin'><button className="waves-light btn-small">Back</button></Link>
 					</div>
 				</div>
 			</section>
 			<Footer />
-		</div>
-		)
+			</div>
+		);
 	}
 }
 
-export default ConfirmPay
+export default TransCreate

@@ -84,7 +84,7 @@ class UserPage extends Component {
 				          <tr className="td">
 				          	<td className="td">Name: {name} <br/>Phone: {phone}</td>
 				            <td className="td">Scope: {docScope} <br/> Type: {docType} </td>
-				            <td className="td">Type: {virtual_doc}<br/> Status: {virtual_status}</td>
+				            <td className="td">Type: {virDoc}<br/> Status: {virStat}</td>
 				            <td className="td">{socDocs}</td>
 				          </tr>
 				        </tbody>

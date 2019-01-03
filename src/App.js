@@ -8,6 +8,8 @@ import AddForm from './UserPages/AddForm';
 import ConfirmPay from './UserPages/ConfirmPay';
 import Home from './AdminPages/HomePage';
 import UserPage from './AdminPages/UserPage';
+import Transaction from './AdminPages/UserTrans';
+import Create from './AdminPages/TransCreate';
 import './index.css';
 
 class App extends Component {
@@ -23,6 +25,8 @@ class App extends Component {
         <Route path= '/confirm' component={ConfirmPay} />
         <Route path= '/admin' component={Home} />
         <Route path= '/user1' component={UserPage} />
+        <Route path= '/trans1' component={Transaction} />
+        <Route path= '/create' component={Create} />
         </Switch>
       </div>
     );

@@ -146,6 +146,8 @@ class Register extends Component {
 				        </div>
 				      </div>
 				  		<button onClick={this.handleClick}className="waves-light btn-small">Register</button>
+				  		<br/><br/><br/>
+						<Link to="/admin"><button className="waves-light btn-small">Back</button></Link> 
 				    </form>
 				  </div>
 				  </div>
