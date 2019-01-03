@@ -113,7 +113,7 @@ class Register extends Component {
 				</h3>
 				<h3 style={{visibility: this.state.confirmed}} className="heading">
 					<b>Done!</b>
-					<Link to='/profile'><button className="waves-light btn-small">Go To Profile</button></Link>
+					<Link to='/admin'><button className="waves-light btn-small">Go To Profile</button></Link>
 				</h3>
 				  <div style={{visibility: this.state.visibility}} className="row">
 				    <form className="col s12">

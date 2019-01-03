@@ -163,13 +163,13 @@ class HomePage extends Component {
 							      <th scope="row">1</th>
 							      <td>{first}</td>
 							      <td>{id1}</td>
-							      <td><Link to='/user1'><button className="waves-light btn-small">View</button></Link></td>
+							      <td><button className="waves-light btn-small">View</button></td>
 							    </tr>
 							    <tr>
 							      <th scope="row">2</th>
 							      <td>{second}</td>
 							      <td>{id2}</td>
-							      <td><button className="waves-light btn-small">View</button></td>
+							      <td><Link to='/user1'><button className="waves-light btn-small">View</button></Link></td>
 							    </tr>
 							    <tr>
 							      <th scope="row">3</th>
