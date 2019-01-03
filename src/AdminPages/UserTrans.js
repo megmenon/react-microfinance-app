@@ -54,7 +54,7 @@ class UserTrans extends Component {
     	let userInfo = this.state.userInfo
     	let status = this.state.transStatus
 
-    	let amountValue , currency, id, type, userID, userName, nickName, stat, date
+    	let amountValue , currency, id, type, userID, userName, nickName, stat
 
     	if(amount && transaction && userInfo && status){
     		amountValue = amount.amount

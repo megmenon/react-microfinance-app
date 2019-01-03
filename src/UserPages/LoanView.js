@@ -109,7 +109,6 @@ class LoanView extends Component {
 	render(){
 		let person = this.state.person
 		let info = this.state.data.phone_numbers
-		let doc_status = this.state.data.doc_status
 		let scope = this.state.scope
 		let type = this.state.type
 		let virtual = this.state.virtual_doc
@@ -149,13 +148,6 @@ class LoanView extends Component {
 			scope1 = scope
 		}
 
-
-		let doc_stat;
-		if(doc_status){
-			doc_stat = Object.keys(doc_status).map(keys => {
-				return <h6>{doc_status[keys]}</h6>
-			})
-		}
 		let information
 		if(info){
 			information = info.map(key => {

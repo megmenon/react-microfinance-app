@@ -97,13 +97,11 @@ class HomePage extends Component {
 		let peopleNames = this.state.names
 		let peopleID = this.state.ids
 		let transactions = this.state.amounts
-		let transactionInfo = this.state.transInfo
 		let allStatus = this.state.allStat
 		
 		let first , second , third , fourth, fifth
 		let id1, id2, id3, id4, id5
 		let eachTransaction , trans1, trans2, trans3, trans4, trans5
-		let tId, transactionID, tranStatus
 		let eachStatus, stat1, stat2, stat3, stat4, stat5
 
 		if(peopleNames){
@@ -131,13 +129,6 @@ class HomePage extends Component {
 			trans3 = eachTransaction[2]
 			trans4 = eachTransaction[3]
 			trans5 = eachTransaction[4]
-		}
-
-		if(transactionInfo){
-			tId = transactionInfo.map(t => {
-				return t.id
-			})
-			transactionID = tId[0]
 		}
 
 		if(allStatus){
