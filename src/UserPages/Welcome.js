@@ -69,7 +69,14 @@ class Welcome extends Component {
 						  <p className="membership">Our membership has it's benefits</p>
 						  </h1>
 					</section>
-				<Footer />
+					<div id="foot">
+						<div className="container">
+		     				 <h6 className="products"><br/><br/>
+				                About Us | How it Works | Contact Us | Tweet @So-Fi | Jobs | Blog <br/><br/>
+				                © 2018 Copyright
+		      				</h6>  
+      					</div> 
+					</div>
 			</div>
 		);
 	}

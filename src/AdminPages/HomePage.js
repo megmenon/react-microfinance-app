@@ -214,24 +214,28 @@ class HomePage extends Component {
 							      <td>{trans2}</td> 
 							       <td>{stat2}</td>
 							      <td><button className="waves-light btn-small">View</button></td>
+							      <td><button className="waves-light btn-small">DELETE</button></td>
 							    </tr>
 							    <tr>
 							      <th scope="row">3</th>
 							      <td>{trans3}</td>
 							      <td>{stat3}</td>
 							      <td><button className="waves-light btn-small">View</button></td>
+							      <td><button className="waves-light btn-small">DELETE</button></td>
 							    </tr>
 							    <tr>
 							      <th scope="row">4</th>
 							      <td>{trans4}</td>
 							      <td>{stat4}</td>
 							      <td><button className="waves-light btn-small">View</button></td>
+							      <td><button className="waves-light btn-small">DELETE</button></td>
 							    </tr>
 							    <tr>
 							      <th scope="row">5</th>
 							      <td>{trans5}</td>
 							       <td>{stat5}</td>
 							      <td><button className="waves-light btn-small">View</button></td>
+							      <td><button className="waves-light btn-small">DELETE</button></td>
 							    </tr>
 							</tbody>
 						</table> <br/><br/><br/>
